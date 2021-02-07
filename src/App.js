@@ -7,6 +7,9 @@ import {
   Animated,
   Easing
 } from 'react-native';
+import { Router, Switch, Route } from './routing';
+import Landing from './landing/landing';
+import Authors from './authors/Authors';
 
 export default function App() {
 
@@ -24,28 +27,18 @@ export default function App() {
 
     return (
         <>
-            <Animated.View style={styles.container}> 
-                <Text h1 style={styles.appName}>Poetic</Text>
-            </Animated.View> 
+        <Router>
+          <Switch>
+            <Route exact path="/" render={props => <Landing {...props} />} />
+            <Route path="/authors" render={props => <Authors {...props} />} />
+          </Switch>
+        </Router>
+
         </>
     );
 }
 
 const styles = StyleSheet.create({
 
-    container: {
-        flex: 1,
-        backgroundColor: '#FFE74C',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    appName: {
-        fontSize: 108,
-        fontFamily: "Dancing Script",
-        color: '#413B3B',
-        textShadowColor: '#413B3B',
-        textShadowOffset: { width: 0, height: 3 },
-        textShadowRadius: 6
-    }
 
 });

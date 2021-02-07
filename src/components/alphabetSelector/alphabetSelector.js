@@ -21,7 +21,7 @@ export default function AlphabetSelector() {
 
 const styles = StyleSheet.create({
     text: {
-        color: '#fff',
+        color: 'black',
       }
     }
 )
