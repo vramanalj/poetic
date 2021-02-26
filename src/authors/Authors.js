@@ -7,7 +7,6 @@ export default function Authors() {
     return (
         <View style={styles.container}>
             <AlphabetSelector/>
-            yoho
         </View>
     )
 }
