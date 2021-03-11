@@ -12,7 +12,7 @@ import {
 import {Button, ButtonGroup} from 'react-native-elements';
 import {keyBy} from 'lodash';
 
-export default function AlphabetSelector() {
+export default function AlphabetSelector(props) {
     const [selectedIndex,setSelectedIndex] = useState(5);
     const alphabets = [...'abcdefghijklmnopqrstuvwxyz'];
     let buttonList = alphabets.map((alphabet) => { return alphabet.toUpperCase()});
@@ -20,7 +20,12 @@ export default function AlphabetSelector() {
         <ScrollView horizontal contentContainerStyle={styles.alphabetsContainer}>
             {
                 <ButtonGroup
-                onPress={setSelectedIndex}
+                onPress={(val)=>{
+                    setSelectedIndex(val);
+                    console.log('is this on?')
+                    props.updateSelectedAlphabet(buttonList[val]);
+                }
+                }
                 selectedIndex={selectedIndex}
                 buttons={buttonList}
                 buttonContainerStyle={styles.buttonStlye} 
